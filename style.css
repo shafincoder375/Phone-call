@@ -1,0 +1,166 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background: #f2f2f2;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background: #4CAF50;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+.page {
+  display: none;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+#chatPage {
+  padding-bottom: 60px; /* ফুটারের জন্য জায়গা রাখে */
+}
+.active {
+  display: flex;
+}
+#loginPage input, #friendForm input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 1rem;
+}
+button {
+  padding: 10px 15px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  margin-bottom: 70px; /* fixed footer-এর নিচে overlap না করে */
+}
+.message {
+  background: white;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: relative;
+}
+.timestamp {
+  font-size: 0.75rem;
+  color: gray;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+  footer {
+  display: flex;
+  padding: 10px;
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+#textInput {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+}
+.top-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+#friendList {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+.friend-entry {
+  background: #fff;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.friend-entry:hover {
+  background: #e0f7e9;
+}
+#deleteModal button {
+  margin: 5px;
+  padding: 8px 12px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#deleteModal button:last-child {
+  background: gray;
+}
+.status-dot {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%; margin-left: 5px;
+  background: gray; /* অফলাইন */
+}
+.status-dot.online {
+  background: green; /* অনলাইন */
+}
+/* Top-বাটনগুলোতে স্পেস দিতে */
+.top-btns button {
+  margin-right: 8px;
+}
+
+/* Caller/Receiver/In-Call UI সেকশনগুলো একটু কেন্দ্রভিত্তিক কার্ডের মতো দেখাতে */
+#caller-ui,
+#receiver-ui,
+#in-call-ui {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* UI এর সব বাটনের স্পেস আর হোভার ইফেক্ট */
+#caller-ui button,
+#receiver-ui button,
+#in-call-ui button {
+  margin: 0.5rem 0;
+  width: 100%;
+  max-width: 200px;
+}
+#caller-ui button:hover,
+#receiver-ui button:hover,
+#in-call-ui button:hover {
+  opacity: 0.9;
+}
+
+/* Remote audio element একটু ভিজিবল রাখতে */
+#in-call-ui audio {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+/* Backdrop (ঐচ্ছিক): UI ফোকাসের জন্য হালকা গ্লে-আউট */
+.call-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 999;
+    }
